@@ -1,231 +1,606 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {width: 120px;background: #ffffff;}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {margin-left: 120px}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
-</style>
+  <title>Ahmed Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <style>
+    :root{
+      --bg: #ae1d3e;
+      --panel: rgba(255,255,255,0.08);
+      --card: rgba(255,255,255,0.10);
+      --text: #ffffff;
+      --muted: #d9d9d9;
+      --sidebar: #ffffff;
+      --sidebarText: #222;
+      --accent: #bc2747;
+      --accent2: #481733;
+      --shadow: 0 14px 40px rgba(0,0,0,0.25);
+      --radius: 18px;
+    }
+
+    /* Light mode variables */
+    body.light{
+      --bg: #f6f6f8;
+      --panel: rgba(0,0,0,0.03);
+      --card: rgba(0,0,0,0.04);
+      --text: #141414;
+      --muted: #444;
+      --sidebar: #ffffff;
+      --sidebarText: #141414;
+      --accent: #ae1d3e;
+      --accent2: #481733;
+      --shadow: 0 10px 26px rgba(0,0,0,0.12);
+    }
+
+    html{ scroll-behavior: smooth; }
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+
+    body{
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* Sidebar */
+    .w3-sidebar{
+      width: 120px;
+      background: var(--sidebar);
+      color: var(--sidebarText);
+      box-shadow: var(--shadow);
+    }
+    #main {margin-left: 120px}
+    @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+    .navBtn{
+      color: var(--sidebarText) !important;
+      transition: 0.25s ease;
+      border-left: 3px solid transparent;
+    }
+    .navBtn:hover{
+      background: rgba(174,29,62,0.10) !important;
+      border-left-color: var(--accent);
+      transform: translateX(2px);
+    }
+    .navBtn.active{
+      background: rgba(174,29,62,0.14) !important;
+      border-left-color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Top navbar on mobile */
+    .topbar{
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Header card */
+    .hero{
+      background: linear-gradient(135deg, rgba(188,39,71,0.85), rgba(72,23,51,0.85));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-80px -80px auto auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.20), transparent 60%);
+      transform: rotate(20deg);
+    }
+
+    .hero img{
+      border-radius: 16px;
+      box-shadow: 0 18px 46px rgba(0,0,0,0.35);
+      margin-top: 18px;
+      object-fit: cover;
+      width: min(992px, 100%);
+      max-height: 520px;
+    }
+
+    /* Section container */
+    .glass{
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .muted{ color: var(--muted); }
+
+    /* Buttons */
+    .btn{
+      border-radius: 999px !important;
+      transition: 0.25s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    /* Skill bars */
+    .barWrap{
+      background: rgba(255,255,255,0.16);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar{
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+    }
+
+    /* Stats cards */
+    .statGrid .w3-quarter{
+      padding: 10px 6px;
+    }
+    .statBox{
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 18px 10px;
+    }
+
+    /* Pricing cards */
+    .priceCard{
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .priceCard .head{
+      background: linear-gradient(135deg, rgba(0,0,0,0.60), rgba(0,0,0,0.30));
+      color: #fff;
+    }
+
+    /* Photos */
+    .photoGrid img{
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      transition: 0.25s ease;
+      cursor: pointer;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+    .photoGrid img:hover{
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.35);
+    }
+
+    /* Modal */
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,0.75);
+      z-index: 9999;
+      padding: 18px;
+    }
+    .modalContent{
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .modal img{
+      width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .modalClose{
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Theme toggle floating */
+    .themeToggle{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9998;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: rgba(0,0,0,0.22);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      transition: 0.25s ease;
+    }
+    body.light .themeToggle{ background: rgba(0,0,0,0.10); color: #111; }
+    .themeToggle:hover{ transform: translateY(-2px); }
+
+    /* Scroll progress */
+    .progress{
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      z-index: 9999;
+    }
+
+    /* Back to top */
+    .toTop{
+      position: fixed;
+      right: 18px;
+      bottom: 72px;
+      z-index: 9998;
+      display:none;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 12px;
+      background: rgba(0,0,0,0.22);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+    body.light .toTop{ background: rgba(0,0,0,0.10); color: #111; }
+
+    /* Form inputs */
+    .w3-input{
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.10);
+      color: var(--text);
+    }
+    body.light .w3-input{
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.10);
+    }
+    .w3-input::placeholder{ color: rgba(255,255,255,0.65); }
+    body.light .w3-input::placeholder{ color: rgba(0,0,0,0.45); }
+
+    /* Improve spacing */
+    .sectionTitle{
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+  </style>
 </head>
-<body style="background-color:#ae1d3e;">
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-#red">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-#ae1d3e">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>ABOUT</p>
-  </a>
-  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-#bc2747">
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>PHOTOS</p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-#bc2747">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
-  </a>
-</nav>
 
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-#red w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
-  </div>
-</div>
+<body>
+  <div class="progress" id="progress"></div>
 
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-#bc2747" id="home">
-    <h1 style="color:#ffffff; font-size:70px; font-weight:bold;">I'm Ahmed</h1>
-    <p  style="color:#ffffff; font-size:22px; font-weight:Regular ;">Photographer and graphic Designer.</p>
-    <img src="Snapchat-1373356000.jpg" alt="boy" class="w3-image" width="992" height="1108">
-  </header>
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <a href="#home" class="w3-bar-item w3-button w3-padding-large navBtn active">
+      <i class="fa fa-home w3-xxlarge"></i>
+      <p>HOME</p>
+    </a>
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large navBtn">
+      <i class="fa fa-user w3-xxlarge"></i>
+      <p>ABOUT</p>
+    </a>
+    <a href="#photos" class="w3-bar-item w3-button w3-padding-large navBtn">
+      <i class="fa fa-eye w3-xxlarge"></i>
+      <p>PHOTOS</p>
+    </a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large navBtn">
+      <i class="fa fa-envelope w3-xxlarge"></i>
+      <p>CONTACT</p>
+    </a>
+  </nav>
 
-  <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 style="color:#ffffff; font-size:40px; font-weight:bold;">ِAhmed</h2>
-    <hr style="color:#ffffff; font-size:10px; font-weight:Light ;">
-    <p  style="color:#c9c9c9; font-size:20px; font-weight:Light ;">I am a passionate graphic designer dedicated to transforming ideas into visually compelling designs. With expertise in creating logos,
-         brand identities, advertisements, and digital content, I bring creativity and precision to every project.
-         Skilled in industry-standard tools such as Adobe Photoshop, Illustrator, and InDesign, I strive to deliver designs that not only look beautiful but also communicate messages effectively.
-My work blends artistic vision with strategic thinking, helping clients build strong and memorable brands. Constantly inspired by modern design trends, I aim to craft visuals that are both innovative and timeless.
-
-    </p>
-    <h3 style="color:#ffffff; font-size:35px; font-weight:bold">My Skills</h3>
-    <p style="color:#c9c9c9; font-size:22px; font-weight:Light ;">Photography</p>
-    <div class="w3-white">
-      <div style="height:28px;width:95%; background-color:#481733;"></div>
+  <!-- Top navbar on small screens -->
+  <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="w3-bar topbar w3-center w3-small">
+      <a href="#home" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+      <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+      <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
     </div>
-    <p style="color:#c9c9c9; font-size:22px; font-weight:Light ;">Web Design</p>
-    <div class="w3-white">
-      <div style="height:28px;width:70%; background-color:#481733;"></div>
-    </div>
-    <p style="color:#c9c9c9; font-size:22px; font-weight:Light ;">Photoshop</p>
-    <div class="w3-white">
-      <div style="height:28px;width:99%; background-color:#481733;"></div>
-    </div><br>
-    
-    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">20+</span><br>
-        Partners
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">50+</span><br>
-        Projects Done
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">80+</span><br>
-        Happy Clients
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">200+</span><br>
-        Meetings
-      </div>
-    </div>
-
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i> Download Resume
-    </button>
-    
-    <!-- Grid for pricing tables -->
-    <h3 style="color:#ffffff; font-size:35px; font-weight:bold">My Price</h3>
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-half w3-margin-bottom">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">Video Editor</li>
-          <li class="w3-padding-16">Poster designer</li>
-          <li class="w3-padding-16">
-            <h2>$ 15</h2>
-            <span class="w3-opacity">per month</span>
-          </li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-          </li>
-        </ul>
-      </div>
-
-      <div class="w3-half">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">video Editor</li>
-          <li class="w3-padding-16">Poster designer</li>
-          <li class="w3-padding-16">
-            <h2>$ 50</h2>
-            <span class="w3-opacity">per month</span>
-          </li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-          </li>
-        </ul>
-      </div>
-    <!-- End Grid/Pricing tables -->
-    </div>
-    
-    <!-- Testimonials -->
-    <h3 style="color:#ffffff; font-size:35px; font-weight:bold">My Reputation</h3>  
-    <img src="1 comment.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-    <p style="color:white;">
-  <span class="w3-large w3-margin-right">mohammed alakuaa.</span> CEO at MTN.
-</p>
-<p style="color:white;">ِAhmed saved us from a web disaster.</p><br>
-    
-    <img src="2 comment.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-    <p style="color:white;">
-    <span class="w3-large w3-margin-right">hashem shehary.</span> CEO at Company.
-</p>
-    <p style="color:white;">No one is better than John Doe.</p><br>
-  <!-- End About Section -->
-  </div>
-  
-  <!-- Portfolio Section -->
-  <div class="w3-padding-64 w3-content" id="photos">
-    <h2 style="color:#ffffff; font-size:35px; font-weight:bold">My Photos</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <!-- Grid for photos -->
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-half">
-        <img src="1.jpg" style="width:100%">
-        <img src="2.jpg" style="width:100%">
-        <img src="3.jpg" style="width:100%">
-      </div>
-
-      <div class="w3-half">
-        <img src="4.jpg" style="width:100%">
-        <img src="5.jpg" style="width:100%">
-        <img src="6.jpg" style="width:100%">
-        <img src="7.jpg" style="width:100%">
-      </div>
-    <!-- End photo grid -->
-    </div>
-  <!-- End Portfolio Section -->
   </div>
 
-  <!-- Contact Section -->
-  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
-    <hr style="width:200px" class="w3-opacity">
+  <!-- Page Content -->
+  <div class="w3-padding-large" id="main">
 
-    <div class="w3-section">
-  <p class="w3-text-white"><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> sanaa, YEMEN</p>
-  <p class="w3-text-white"><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +967 777120414</p>
-  <p class="w3-text-white"><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Email: a.winani11@gmail.com</p>
-</div><br>
-<p class="w3-text-white">Let's get in touch. Send me a message:</p>
-
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
+    <!-- Header -->
+    <header class="w3-container w3-padding-32 w3-center hero" id="home">
+      <h1 style="color:#fff; font-size: clamp(44px, 6vw, 72px); font-weight:900;">I'm Ahmed</h1>
+      <p style="color:#fff; font-size: clamp(16px, 2vw, 22px); opacity:0.95;">
+        Photographer & Graphic Designer
       </p>
-    </form>
-  <!-- End Contact Section -->
-  </div>
-  
+
+      <!-- Performance: loading/decoding + prioritize first image -->
+      <img
+        src="Snapchat-1373356000.jpg"
+        alt="Ahmed"
+        class="w3-image"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="992"
+        height="520"
+      />
+    </header>
+
+    <!-- About -->
+    <div class="w3-content w3-padding-64" id="about">
+      <div class="glass">
+        <h2 class="sectionTitle" style="font-size:40px;">Ahmed</h2>
+        <hr style="opacity:0.35">
+
+        <p class="muted" style="font-size:18px; line-height:1.9;">
+          I am a passionate graphic designer dedicated to transforming ideas into visually compelling designs.
+          With expertise in creating logos, brand identities, advertisements, and digital content, I bring creativity
+          and precision to every project. Skilled in industry-standard tools such as Adobe Photoshop, Illustrator,
+          and InDesign, I strive to deliver designs that not only look beautiful but also communicate messages effectively.
+          My work blends artistic vision with strategic thinking, helping clients build strong and memorable brands.
+          Constantly inspired by modern design trends, I aim to craft visuals that are both innovative and timeless.
+        </p>
+
+        <h3 class="sectionTitle" style="font-size:32px; margin-top:22px;">My Skills</h3>
+
+        <p class="muted" style="margin: 14px 0 8px;">Photography</p>
+        <div class="barWrap"><div class="bar" style="width:95%"></div></div>
+
+        <p class="muted" style="margin: 14px 0 8px;">Web Design</p>
+        <div class="barWrap"><div class="bar" style="width:70%"></div></div>
+
+        <p class="muted" style="margin: 14px 0 8px;">Photoshop</p>
+        <div class="barWrap"><div class="bar" style="width:99%"></div></div>
+
+        <div class="w3-row w3-center w3-padding-16 w3-section statGrid" style="margin-top:18px;">
+          <div class="w3-quarter w3-section">
+            <div class="statBox">
+              <span class="w3-xlarge" style="font-weight:900;">20+</span><br>Partners
+            </div>
+          </div>
+          <div class="w3-quarter w3-section">
+            <div class="statBox">
+              <span class="w3-xlarge" style="font-weight:900;">50+</span><br>Projects Done
+            </div>
+          </div>
+          <div class="w3-quarter w3-section">
+            <div class="statBox">
+              <span class="w3-xlarge" style="font-weight:900;">80+</span><br>Happy Clients
+            </div>
+          </div>
+          <div class="w3-quarter w3-section">
+            <div class="statBox">
+              <span class="w3-xlarge" style="font-weight:900;">200+</span><br>Meetings
+            </div>
+          </div>
+        </div>
+
+        <button class="w3-button w3-light-grey w3-padding-large w3-section btn">
+          <i class="fa fa-download"></i> Download Resume
+        </button>
+
+        <!-- Pricing -->
+        <h3 class="sectionTitle" style="font-size:32px; margin-top:16px;">My Price</h3>
+
+        <div class="w3-row-padding" style="margin:0 -16px">
+          <div class="w3-half w3-margin-bottom">
+            <ul class="w3-ul w3-white w3-center priceCard">
+              <li class="head w3-xlarge w3-padding-32">Basic</li>
+              <li class="w3-padding-16">Web Design</li>
+              <li class="w3-padding-16">Photography</li>
+              <li class="w3-padding-16">Video Editor</li>
+              <li class="w3-padding-16">Poster Designer</li>
+              <li class="w3-padding-16">
+                <h2>$ 15</h2>
+                <span class="w3-opacity">per month</span>
+              </li>
+              <li class="w3-light-grey w3-padding-24">
+                <button class="w3-button w3-white w3-padding-large w3-hover-black btn">Sign Up</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="w3-half">
+            <ul class="w3-ul w3-white w3-center priceCard">
+              <li class="head w3-xlarge w3-padding-32">Pro</li>
+              <li class="w3-padding-16">Web Design</li>
+              <li class="w3-padding-16">Photography</li>
+              <li class="w3-padding-16">Video Editor</li>
+              <li class="w3-padding-16">Poster Designer</li>
+              <li class="w3-padding-16">
+                <h2>$ 50</h2>
+                <span class="w3-opacity">per month</span>
+              </li>
+              <li class="w3-light-grey w3-padding-24">
+                <button class="w3-button w3-white w3-padding-large w3-hover-black btn">Sign Up</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <h3 class="sectionTitle" style="font-size:32px; margin-top:12px;">My Reputation</h3>
+
+        <div class="w3-row" style="margin-top:10px;">
+          <div class="w3-col s12" style="margin-bottom:16px;">
+            <img src="1 comment.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:72px" loading="lazy" decoding="async">
+            <p style="margin:0; font-weight:700;"><span class="w3-large">mohammed alakuaa.</span> <span class="muted">CEO at MTN.</span></p>
+            <p class="muted" style="margin:6px 0 0;">Ahmed saved us from a web disaster.</p>
+          </div>
+
+          <div class="w3-col s12">
+            <img src="2 comment.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:72px" loading="lazy" decoding="async">
+            <p style="margin:0; font-weight:700;"><span class="w3-large">hashem shehary.</span> <span class="muted">CEO at Company.</span></p>
+            <p class="muted" style="margin:6px 0 0;">No one is better than John Doe.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="w3-padding-64 w3-content" id="photos">
+      <div class="glass">
+        <h2 class="sectionTitle" style="font-size:32px;">My Photos</h2>
+        <hr style="opacity:0.35">
+
+        <div class="w3-row-padding photoGrid" style="margin:0 -16px">
+          <div class="w3-half">
+            <img src="1.jpg" alt="photo1" style="width:100%" loading="lazy" decoding="async" onclick="openModal(this)">
+            <img src="2.jpg" alt="photo2" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
+            <img src="3.jpg" alt="photo3" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
+          </div>
+
+          <div class="w3-half">
+            <img src="4.jpg" alt="photo4" style="width:100%" loading="lazy" decoding="async" onclick="openModal(this)">
+            <img src="5.jpg" alt="photo5" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
+            <img src="6.jpg" alt="photo6" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
+            <img src="7.jpg" alt="photo7" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="w3-padding-64 w3-content" id="contact">
+      <div class="glass">
+        <h2 class="sectionTitle" style="font-size:32px;">Contact Me</h2>
+        <hr style="opacity:0.35">
+
+        <div class="w3-section">
+          <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> sanaa, YEMEN</p>
+          <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +967 777120414</p>
+          <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"></i> Email: a.winani11@gmail.com</p>
+        </div>
+
+        <p class="muted">Let's get in touch. Send me a message:</p>
+
+        <form action="/action_page.php" target="_blank">
+          <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+          <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
+          <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
+          <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
+          <p>
+            <button class="w3-button w3-light-grey w3-padding-large btn" type="submit">
+              <i class="fa fa-paper-plane"></i> SEND MESSAGE
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+
     <!-- Footer -->
- <footer class="w3-content w3-padding-64 w3-xlarge">
-    <i class="fa fa-facebook-official w3-hover-opacity w3-text-white"></i>
-    <i class="fa fa-instagram w3-hover-opacity w3-text-white"></i>
-    <i class="fa fa-snapchat w3-hover-opacity w3-text-white"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity w3-text-white"></i>
-    <i class="fa fa-twitter w3-hover-opacity w3-text-white"></i>
-    <i class="fa fa-linkedin w3-hover-opacity w3-text-white"></i>
-    <p class="w3-medium w3-text-white">Powered by: Ahmed Alwinani </p>
-</footer>
-  <!-- End footer -->
-  </footer>
+    <footer class="w3-content w3-padding-64 w3-xlarge w3-center">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+      <p class="w3-medium muted" style="margin-top:14px;">Powered by: Ahmed Alwinani</p>
+    </footer>
 
-<!-- END PAGE CONTENT -->
-</div>
+  </div>
 
+  <!-- Modal -->
+  <div class="modal" id="imgModal" onclick="closeModal()">
+    <button class="modalClose" type="button" onclick="closeModal(); event.stopPropagation();">
+      <i class="fa fa-close"></i>
+    </button>
+    <div class="modalContent">
+      <img id="modalImg" alt="Preview">
+    </div>
+  </div>
+
+  <!-- Floating Buttons -->
+  <button class="themeToggle" id="themeToggle" type="button" title="Toggle theme">
+    <i class="fa fa-moon-o" id="themeIcon"></i>
+  </button>
+
+  <button class="toTop" id="toTop" type="button" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Back to top">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Theme (Dark/Light) with localStorage
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(mode){
+      if(mode === 'light'){
+        body.classList.add('light');
+        themeIcon.className = 'fa fa-sun-o';
+      }else{
+        body.classList.remove('light');
+        themeIcon.className = 'fa fa-moon-o';
+      }
+      localStorage.setItem('theme', mode);
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = body.classList.contains('light');
+      applyTheme(isLight ? 'dark' : 'light');
+    });
+
+    // Modal
+    const imgModal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+
+    function openModal(img){
+      modalImg.src = img.src;
+      imgModal.style.display = 'block';
+    }
+    function closeModal(){
+      imgModal.style.display = 'none';
+      modalImg.src = '';
+    }
+
+    // Scroll progress + back to top
+    const progress = document.getElementById('progress');
+    const toTop = document.getElementById('toTop');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height ? (scrollTop / height) * 100 : 0;
+      progress.style.width = scrolled + '%';
+
+      toTop.style.display = scrollTop > 600 ? 'block' : 'none';
+    });
+
+    // Active nav highlight (basic)
+    const navLinks = document.querySelectorAll('.navBtn');
+    const sections = ['home','about','photos','contact'].map(id => document.getElementById(id));
+
+    function setActive(){
+      let current = 'home';
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if(rect.top <= 160 && rect.bottom >= 160) current = sec.id;
+      });
+      navLinks.forEach(a => a.classList.remove('active'));
+      const activeLink = document.querySelector('.navBtn[href="#'+current+'"]');
+      if(activeLink) activeLink.classList.add('active');
+    }
+    window.addEventListener('scroll', setActive);
+    setActive();
+  </script>
 </body>
 </html>
