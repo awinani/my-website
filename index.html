@@ -1,1048 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <title>Ahmed | Portfolio</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- SEO -->
-  <meta name="description" content="Ahmed - Photographer & Graphic Designer. Branding, posters, and digital content with a modern aesthetic." />
-  <meta name="keywords" content="Ahmed, Portfolio, Graphic Designer, Photographer, Photoshop, Illustrator, Web Design, Yemen" />
-  <meta name="author" content="Ahmed" />
-
-  <!-- OpenGraph -->
-  <meta property="og:title" content="Ahmed | Portfolio" />
-  <meta property="og:description" content="Branding • Photography • Web Design • Posters — Modern portfolio with smooth experience." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="Snapchat-1373356000.jpg" />
-
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-
-  <!-- Fonts: English + Arabic -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&family=Montserrat:wght@400;900&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg: #ae1d3e;
-      --panel: rgba(255,255,255,0.08);
-      --card: rgba(255,255,255,0.10);
-      --text: #ffffff;
-      --muted: rgba(255,255,255,0.78);
-      --sidebar: #ffffff;
-      --sidebarText: #161616;
-      --accent: #bc2747;
-      --accent2: #481733;
-      --shadow: 0 14px 40px rgba(0,0,0,0.25);
-      --radius: 18px;
-      --ring: 0 0 0 3px rgba(188,39,71,0.22);
-      --font-ar: 'IBM Plex Sans Arabic', sans-serif;
-      --font-en: 'Montserrat', sans-serif;
-    }
-    body.light{
-      --bg: #f6f6f8;
-      --panel: rgba(0,0,0,0.03);
-      --card: rgba(0,0,0,0.04);
-      --text: #141414;
-      --muted: rgba(0,0,0,0.65);
-      --sidebar: #ffffff;
-      --sidebarText: #141414;
-      --accent: #ae1d3e;
-      --accent2: #481733;
-      --shadow: 0 10px 26px rgba(0,0,0,0.12);
-      --ring: 0 0 0 3px rgba(174,29,62,0.18);
-    }
-
-    html{ scroll-behavior: smooth; }
-    body{
-      margin:0;
-      font-family: var(--font-en);
-      background:
-        radial-gradient(900px 600px at 10% 10%, rgba(255,255,255,0.08), transparent 60%),
-        radial-gradient(700px 500px at 90% 20%, rgba(0,0,0,0.18), transparent 65%),
-        var(--bg);
-      color: var(--text);
-    }
-
-    /* Arabic mode */
-    body.ar{
-      direction: rtl;
-      font-family: var(--font-ar);
-    }
-    body.ar h1, body.ar h2, body.ar h3, body.ar h4, body.ar h5, body.ar h6,
-    body.ar p, body.ar span, body.ar a, body.ar li, body.ar button, body.ar input, body.ar textarea{
-      font-family: var(--font-ar);
-      letter-spacing: 0 !important;
-    }
-
-    /* Sidebar */
-    .w3-sidebar{
-      width: 120px;
-      background: var(--sidebar);
-      color: var(--sidebarText);
-      box-shadow: var(--shadow);
-    }
-    #main {margin-left: 120px}
-    @media only screen and (max-width: 600px) {#main {margin-left: 0}}
-
-    .navBtn{
-      color: var(--sidebarText) !important;
-      transition: 0.25s ease;
-      border-left: 3px solid transparent;
-    }
-    .navBtn:hover{
-      background: rgba(174,29,62,0.10) !important;
-      border-left-color: var(--accent);
-      transform: translateX(2px);
-    }
-    .navBtn.active{
-      background: rgba(174,29,62,0.14) !important;
-      border-left-color: var(--accent);
-      font-weight: 800;
-    }
-
-    /* Mobile top bar */
-    .topbar{
-      background: rgba(0,0,0,0.22);
-      backdrop-filter: blur(10px);
-    }
-
-    /* Header / Hero */
-    .hero{
-      background: linear-gradient(135deg, rgba(188,39,71,0.88), rgba(72,23,51,0.88));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-      isolation: isolate;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:-90px -90px auto auto;
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.22), transparent 60%);
-      transform: rotate(18deg);
-      z-index: 0;
-    }
-    .hero .inner{ position: relative; z-index: 1; }
-    .hero img{
-      border-radius: 16px;
-      box-shadow: 0 18px 46px rgba(0,0,0,0.35);
-      margin-top: 18px;
-      object-fit: cover;
-      width: min(992px, 100%);
-      max-height: 520px;
-    }
-
-    /* Section glass */
-    .glass{
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .muted{ color: var(--muted); }
-    .sectionTitle{
-      font-weight: 900;
-      letter-spacing: 0.2px;
-    }
-
-    /* Buttons */
-    .btn{
-      border-radius: 999px !important;
-      transition: 0.25s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-    }
-    .btnAccent{
-      background: linear-gradient(90deg, var(--accent2), var(--accent));
-      color: #fff !important;
-    }
-    .btnAccent:hover{ filter: brightness(1.05); }
-
-    /* Skill bars */
-    .barWrap{
-      background: rgba(255,255,255,0.16);
-      border-radius: 999px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-    body.light .barWrap{
-      background: rgba(0,0,0,0.05);
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-    .bar{
-      height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent2), var(--accent));
-      width: 0%;
-      transition: width 1s ease;
-    }
-
-    /* Chips */
-    .chip{
-      display:inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.12);
-      margin: 6px 6px 0 0;
-      font-size: 13px;
-    }
-    body.light .chip{
-      background: rgba(0,0,0,0.04);
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-
-    /* Stats */
-    .statBox{
-      border-radius: 16px;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.10);
-      padding: 18px 10px;
-    }
-
-    /* Service cards */
-    .serviceCard{
-      border-radius: 18px;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.10);
-      padding: 18px;
-      transition: 0.25s ease;
-      min-height: 180px;
-    }
-    .serviceCard:hover{
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      outline: var(--ring);
-    }
-    .serviceIcon{
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: linear-gradient(135deg, rgba(72,23,51,0.85), rgba(188,39,71,0.65));
-      margin-bottom: 12px;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.22);
-      color: #fff;
-      font-size: 20px;
-    }
-
-    /* Timeline */
-    .timeline{
-      position: relative;
-      padding-left: 18px;
-      margin-top: 8px;
-    }
-    body.ar .timeline{
-      padding-left: 0;
-      padding-right: 18px;
-    }
-    .timeline::before{
-      content:"";
-      position:absolute;
-      left: 6px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(var(--accent), transparent);
-      opacity: 0.7;
-    }
-    body.ar .timeline::before{
-      left: auto;
-      right: 6px;
-    }
-    .tItem{
-      position: relative;
-      padding: 12px 12px 12px 18px;
-      margin-bottom: 10px;
-      border-radius: 16px;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-    body.ar .tItem{
-      padding: 12px 18px 12px 12px;
-    }
-    .tItem::before{
-      content:"";
-      position:absolute;
-      left: -2px;
-      top: 18px;
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent2), var(--accent));
-      box-shadow: 0 0 0 4px rgba(188,39,71,0.18);
-    }
-    body.ar .tItem::before{
-      left: auto;
-      right: -2px;
-    }
-
-    /* Projects */
-    .projectCard{
-      border-radius: 18px;
-      overflow: hidden;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.10);
-      transition: 0.25s ease;
-    }
-    .projectCard:hover{
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      outline: var(--ring);
-    }
-    .projectTop{ padding: 16px 16px 0 16px; }
-    .projectFooter{ padding: 14px 16px 16px 16px; }
-
-    /* Photos */
-    .photoGrid img{
-      border-radius: 16px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-      transition: 0.25s ease;
-      cursor: pointer;
-      object-fit: cover;
-      aspect-ratio: 4/3;
-    }
-    .photoGrid img:hover{
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 18px 44px rgba(0,0,0,0.35);
-    }
-
-    /* Modal */
-    .modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      background: rgba(0,0,0,0.75);
-      z-index: 9999;
-      padding: 18px;
-    }
-    .modalContent{
-      max-width: 1100px;
-      margin: 0 auto;
-      height: 100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .modal img{
-      width: 100%;
-      max-height: 90vh;
-      object-fit: contain;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
-    .modalClose{
-      position: fixed;
-      top: 14px;
-      right: 14px;
-      border: none;
-      border-radius: 999px;
-      padding: 10px 14px;
-      background: rgba(255,255,255,0.14);
-      color: #fff;
-      cursor: pointer;
-      font-size: 16px;
-      backdrop-filter: blur(10px);
-    }
-
-    /* Inputs */
-    .w3-input{
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.10);
-      color: var(--text);
-    }
-    body.light .w3-input{
-      background: rgba(0,0,0,0.03);
-      border: 1px solid rgba(0,0,0,0.10);
-    }
-    .w3-input::placeholder{ color: rgba(255,255,255,0.65); }
-    body.light .w3-input::placeholder{ color: rgba(0,0,0,0.45); }
-
-    /* Floating UI */
-    .progress{
-      position: fixed; top: 0; left: 0;
-      height: 4px; width: 0%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      z-index: 9999;
-    }
-    .fab{
-      position: fixed;
-      right: 18px;
-      z-index: 9998;
-      border: none;
-      border-radius: 999px;
-      padding: 12px 14px;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow);
-      transition: 0.25s ease;
-    }
-    .fab:hover{ transform: translateY(-2px); }
-    .themeToggle{
-      bottom: 18px;
-      background: rgba(0,0,0,0.22);
-      color: #fff;
-    }
-    body.light .themeToggle{ background: rgba(0,0,0,0.10); color: #111; }
-
-    .langToggle{
-      bottom: 72px;
-      background: rgba(0,0,0,0.22);
-      color: #fff;
-    }
-    body.light .langToggle{ background: rgba(0,0,0,0.10); color: #111; }
-
-    .toTop{
-      bottom: 126px;
-      display:none;
-      background: rgba(0,0,0,0.22);
-      color: #fff;
-    }
-    body.light .toTop{ background: rgba(0,0,0,0.10); color: #111; }
-
-    .waBtn{
-      left: 18px;
-      right: auto;
-      bottom: 18px;
-      background: rgba(0,0,0,0.22);
-      color: #fff;
-      display:flex;
-      gap: 8px;
-      align-items:center;
-      text-decoration: none;
-    }
-    body.light .waBtn{ background: rgba(0,0,0,0.10); color: #111; }
-
-    /* Reveal animation */
-    .reveal{
-      opacity: 0;
-      transform: translateY(16px);
-      transition: 0.7s ease;
-    }
-    .reveal.show{
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hrSoft{ opacity: 0.35; }
-    .divider{ height: 1px; background: rgba(255,255,255,0.12); margin: 18px 0; }
-    body.light .divider{ background: rgba(0,0,0,0.10); }
-
-    /* Language helper */
-    .lang{ display: inline; }
-    body.ar .lang.en{ display:none !important; }
-    body:not(.ar) .lang.ar{ display:none !important; }
+    :root{--bg:#ae1d3e;--p:rgba(255,255,255,.1);--txt:#fff;--acc:#bc2747;--font:'Montserrat',sans-serif}
+    body.light{--bg:#f6f6f8;--p:rgba(0,0,0,.05);--txt:#141414}
+    body{margin:0;font-family:var(--font);background:var(--bg);color:var(--txt);transition:.3s}
+    body.ar{direction:rtl;--font:'IBM Plex Sans Arabic',sans-serif}
+    body.ar *{font-family:var(--font)!important}
+    .w3-sidebar{width:120px;background:#fff;color:#111}
+    #main{margin-left:120px} @media(max-width:600px){#main{margin-left:0}}
+    .hero{background:linear-gradient(135deg,var(--acc),#481733);border-radius:18px;padding:40px 10px}
+    .glass{background:var(--p);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px;margin-bottom:20px}
+    .btn{border-radius:50px!important;transition:.3s;font-weight:700;background:linear-gradient(90deg,#481733,var(--acc));color:#fff!important}
+    .bar-bg{background:rgba(255,255,255,.1);border-radius:10px;height:8px;margin:10px 0}
+    .bar{height:100%;background:#fff;width:0;transition:1.5s;border-radius:10px}
+    img{border-radius:15px;cursor:pointer;transition:.3s} img:hover{transform:scale(1.02)}
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;padding:20px}
+    .fab{position:fixed;right:20px;width:45px;height:45px;border-radius:50%;cursor:pointer;z-index:99;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3);color:#fff;border:none}
+    .reveal{opacity:0;transform:translateY(30px);transition:.8s} .reveal.show{opacity:1;transform:translateY(0)}
+    .lang.ar, body.ar .lang.en{display:none} body.ar .lang.ar{display:inline}
+    .testi{display:none}
   </style>
 </head>
-
 <body>
-  <div class="progress" id="progress"></div>
+<div id="pb" style="position:fixed;top:0;height:4px;background:#fff;z-index:1000;transition:.1s"></div>
 
-  <!-- Sidebar -->
-  <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-    <a href="#home" class="w3-bar-item w3-button w3-padding-large navBtn active">
-      <i class="fa fa-home w3-xxlarge"></i>
-      <p><span class="lang en">HOME</span><span class="lang ar">الرئيسية</span></p>
-    </a>
-    <a href="#about" class="w3-bar-item w3-button w3-padding-large navBtn">
-      <i class="fa fa-user w3-xxlarge"></i>
-      <p><span class="lang en">ABOUT</span><span class="lang ar">عنّي</span></p>
-    </a>
-    <a href="#services" class="w3-bar-item w3-button w3-padding-large navBtn">
-      <i class="fa fa-briefcase w3-xxlarge"></i>
-      <p><span class="lang en">SERVICES</span><span class="lang ar">الخدمات</span></p>
-    </a>
-    <a href="#projects" class="w3-bar-item w3-button w3-padding-large navBtn">
-      <i class="fa fa-th-large w3-xxlarge"></i>
-      <p><span class="lang en">PROJECTS</span><span class="lang ar">الأعمال</span></p>
-    </a>
-    <a href="#photos" class="w3-bar-item w3-button w3-padding-large navBtn">
-      <i class="fa fa-eye w3-xxlarge"></i>
-      <p><span class="lang en">PHOTOS</span><span class="lang ar">الصور</span></p>
-    </a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large navBtn">
-      <i class="fa fa-envelope w3-xxlarge"></i>
-      <p><span class="lang en">CONTACT</span><span class="lang ar">تواصل</span></p>
-    </a>
-  </nav>
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <a href="#home" class="w3-bar-item w3-button w3-padding-large"><i class="fa fa-home w3-xxlarge"></i><p class="lang en">HOME</p><p class="lang ar">الرئيسية</p></a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large"><i class="fa fa-user w3-xxlarge"></i><p class="lang en">ABOUT</p><p class="lang ar">عنّي</p></a>
+  <a href="#projects" class="w3-bar-item w3-button w3-padding-large"><i class="fa fa-th-large w3-xxlarge"></i><p class="lang en">WORK</p><p class="lang ar">أعمالي</p></a>
+</nav>
 
-  <!-- Mobile top bar -->
-  <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-    <div class="w3-bar topbar w3-center w3-small">
-      <a href="#home" class="w3-bar-item w3-button" style="width:20% !important"><span class="lang en">HOME</span><span class="lang ar">الرئيسية</span></a>
-      <a href="#about" class="w3-bar-item w3-button" style="width:20% !important"><span class="lang en">ABOUT</span><span class="lang ar">عنّي</span></a>
-      <a href="#services" class="w3-bar-item w3-button" style="width:20% !important"><span class="lang en">SERV</span><span class="lang ar">خدمات</span></a>
-      <a href="#projects" class="w3-bar-item w3-button" style="width:20% !important"><span class="lang en">WORK</span><span class="lang ar">أعمال</span></a>
-      <a href="#contact" class="w3-bar-item w3-button" style="width:20% !important"><span class="lang en">CONTACT</span><span class="lang ar">تواصل</span></a>
+<div class="w3-padding-large" id="main">
+  <header class="w3-container w3-center hero reveal" id="home">
+    <h1 style="font-weight:900"> <span class="lang en">I'm Ahmed</span><span class="lang ar">أنا أحمد</span> </h1>
+    <img src="Snapchat-1373356000.jpg" style="width:100%;max-width:500px">
+  </header>
+
+  <section class="w3-content w3-padding-64 reveal" id="about">
+    <div class="glass">
+      <h2 class="lang en">Skills</h2><h2 class="lang ar">مهاراتي</h2>
+      <p>Photoshop</p> <div class="bar-bg"><div class="bar" data-w="95"></div></div>
+      <p>Photography</p> <div class="bar-bg"><div class="bar" data-w="90"></div></div>
+      <a href="Ahmed-CV.pdf" class="w3-button btn w3-margin-top"> <i class="fa fa-download"></i> CV </a>
     </div>
-  </div>
+  </section>
 
-  <!-- Page Content -->
-  <div class="w3-padding-large" id="main">
+  <section class="w3-content w3-padding-32 reveal">
+    <div class="glass w3-center">
+      <div class="testi"> <p class="w3-large">"مبدع وسريع جداً في التنفيذ"</p> <p><b>- محمد الأكوع</b></p> </div>
+      <div class="testi"> <p class="w3-large">"تصاميم عصرية واحترافية"</p> <p><b>- هاشم الشهاري</b></p> </div>
+      <button class="w3-button" onclick="plusS(-1)">❮</button> <button class="w3-button" onclick="plusS(1)">❯</button>
+    </div>
+  </section>
 
-    <!-- Header -->
-    <header class="w3-container w3-padding-32 w3-center hero reveal" id="home">
-      <div class="inner">
-        <h1 style="color:#fff; font-size: clamp(44px, 6vw, 72px); font-weight:900; margin-bottom:8px;">
-          <span class="lang en">I'm Ahmed</span>
-          <span class="lang ar">أنا أحمد</span>
-        </h1>
-        <p style="color:#fff; font-size: clamp(16px, 2vw, 22px); opacity:0.95; margin:0;">
-          <span class="lang en">Photographer & Graphic Designer</span>
-          <span class="lang ar">مصور فوتوغرافي ومصمم جرافيك</span>
-        </p>
-
-        <div style="margin-top:16px;">
-          <a href="#projects" class="w3-button btn btnAccent w3-padding-large" style="margin:6px;">
-            <i class="fa fa-rocket"></i>
-            <span class="lang en">View Projects</span>
-            <span class="lang ar">استعرض الأعمال</span>
-          </a>
-          <a href="#contact" class="w3-button btn w3-light-grey w3-padding-large" style="margin:6px;">
-            <i class="fa fa-paper-plane"></i>
-            <span class="lang en">Hire Me</span>
-            <span class="lang ar">تواصل معي</span>
-          </a>
-        </div>
-
-        <!-- Keep your image name -->
-        <img
-          src="Snapchat-1373356000.jpg"
-          alt="Ahmed"
-          class="w3-image"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          width="992"
-          height="520"
-        />
-      </div>
-    </header>
-
-    <!-- About -->
-    <div class="w3-content w3-padding-64 reveal" id="about">
-      <div class="glass">
-        <h2 class="sectionTitle" style="font-size:40px; margin:0;">
-          <span class="lang en">Ahmed</span>
-          <span class="lang ar">أحمد</span>
-        </h2>
-        <hr class="hrSoft">
-
-        <p class="muted" style="font-size:18px; line-height:1.9; margin-top:10px;">
-          <span class="lang en">
-            I am a passionate graphic designer dedicated to transforming ideas into visually compelling designs.
-            With expertise in creating logos, brand identities, advertisements, and digital content, I bring creativity
-            and precision to every project.
-          </span>
-          <span class="lang ar">
-            أنا مصمم جرافيك شغوف بتحويل الأفكار إلى تصاميم بصرية مؤثرة. أمتلك خبرة في تصميم الشعارات والهوية البصرية والإعلانات
-            والمحتوى الرقمي، مع اهتمام بالتفاصيل ودقة التنفيذ لإخراج عمل احترافي.
-          </span>
-        </p>
-
-        <div class="divider"></div>
-
-        <h3 class="sectionTitle" style="font-size:32px; margin:0 0 8px;">
-          <span class="lang en">Tools & Workflow</span>
-          <span class="lang ar">الأدوات وطريقة العمل</span>
-        </h3>
-        <div>
-          <span class="chip"><i class="fa fa-magic"></i> Photoshop</span>
-          <span class="chip"><i class="fa fa-paint-brush"></i> Illustrator</span>
-          <span class="chip"><i class="fa fa-file-image-o"></i> InDesign</span>
-          <span class="chip"><i class="fa fa-camera"></i> Lightroom</span>
-          <span class="chip"><i class="fa fa-code"></i> HTML/CSS</span>
-          <span class="chip"><i class="fa fa-bolt"></i> <span class="lang en">Fast Delivery</span><span class="lang ar">تسليم سريع</span></span>
-        </div>
-
-        <div class="divider"></div>
-
-        <h3 class="sectionTitle" style="font-size:32px; margin-top:0;">
-          <span class="lang en">My Skills</span>
-          <span class="lang ar">مهاراتي</span>
-        </h3>
-
-        <p class="muted" style="margin: 14px 0 8px;">
-          <span class="lang en">Photography</span><span class="lang ar">التصوير</span>
-        </p>
-        <div class="barWrap"><div class="bar" data-w="95"></div></div>
-
-        <p class="muted" style="margin: 14px 0 8px;">
-          <span class="lang en">Web Design</span><span class="lang ar">تصميم مواقع</span>
-        </p>
-        <div class="barWrap"><div class="bar" data-w="70"></div></div>
-
-        <p class="muted" style="margin: 14px 0 8px;">
-          <span class="lang en">Photoshop</span><span class="lang ar">فوتوشوب</span>
-        </p>
-        <div class="barWrap"><div class="bar" data-w="99"></div></div>
-
-        <div class="w3-row w3-center w3-padding-16 w3-section" style="margin-top:18px;">
-          <div class="w3-quarter w3-section">
-            <div class="statBox">
-              <span class="w3-xlarge" style="font-weight:900;">20+</span><br>
-              <span class="muted"><span class="lang en">Partners</span><span class="lang ar">شركاء</span></span>
-            </div>
-          </div>
-          <div class="w3-quarter w3-section">
-            <div class="statBox">
-              <span class="w3-xlarge" style="font-weight:900;">50+</span><br>
-              <span class="muted"><span class="lang en">Projects Done</span><span class="lang ar">مشاريع</span></span>
-            </div>
-          </div>
-          <div class="w3-quarter w3-section">
-            <div class="statBox">
-              <span class="w3-xlarge" style="font-weight:900;">80+</span><br>
-              <span class="muted"><span class="lang en">Happy Clients</span><span class="lang ar">عملاء سعداء</span></span>
-            </div>
-          </div>
-          <div class="w3-quarter w3-section">
-            <div class="statBox">
-              <span class="w3-xlarge" style="font-weight:900;">200+</span><br>
-              <span class="muted"><span class="lang en">Meetings</span><span class="lang ar">اجتماعات</span></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- CV -->
-        <a class="w3-button btn btnAccent w3-padding-large w3-section" href="Ahmed-CV.pdf" download>
-          <i class="fa fa-download"></i>
-          <span class="lang en">Download Resume (PDF)</span>
-          <span class="lang ar">تحميل السيرة الذاتية (PDF)</span>
-        </a>
-
-        <!-- Timeline -->
-        <h3 class="sectionTitle" style="font-size:32px; margin-top:10px;">
-          <span class="lang en">Experience Timeline</span>
-          <span class="lang ar">الخبرات (خط زمني)</span>
-        </h3>
-        <div class="timeline">
-          <div class="tItem">
-            <div style="font-weight:900;"><span class="lang en">2026 — Portfolio & Branding</span><span class="lang ar">2026 — بورتفوليو وهوية بصرية</span></div>
-            <div class="muted"><span class="lang en">Brand identity systems, posters, and digital content.</span><span class="lang ar">تصميم هويات بصرية، بوسترات، ومحتوى رقمي بأسلوب حديث.</span></div>
-          </div>
-          <div class="tItem">
-            <div style="font-weight:900;"><span class="lang en">2025 — Photography & Retouching</span><span class="lang ar">2025 — تصوير ومعالجة</span></div>
-            <div class="muted"><span class="lang en">Professional photo sessions, grading, and retouch workflow.</span><span class="lang ar">جلسات تصوير احترافية، تصحيح ألوان، ولمسات نهائية.</span></div>
-          </div>
-          <div class="tItem">
-            <div style="font-weight:900;"><span class="lang en">2024 — Web Design</span><span class="lang ar">2024 — تصميم مواقع</span></div>
-            <div class="muted"><span class="lang en">Responsive pages with performance & UI focus.</span><span class="lang ar">صفحات متجاوبة مع أداء سريع وتجربة مستخدم قوية.</span></div>
-          </div>
-        </div>
-
-        <!-- Testimonials (keep names) -->
-        <h3 class="sectionTitle" style="font-size:32px; margin-top:18px;">
-          <span class="lang en">My Reputation</span>
-          <span class="lang ar">آراء العملاء</span>
-        </h3>
-
-        <div style="margin-top:10px;">
-          <img src="1 comment.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:72px"
-               loading="lazy" decoding="async">
-          <p style="margin:0; font-weight:800;"><span class="w3-large">محمد الأكوع.</span> <span class="muted">المدير الفني في شركة جينسلر.</span></p>
-          <p class="muted" style="margin:6px 0 0;">أحمد أفضل مصمم على هذه الأرض in the, وكان أحد أسباب نجاح الشركة.</p>
-        </div>
-        <br>
-
-        <div>
-          <img src="2 comment.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:72px"
-               loading="lazy" decoding="async">
-          <p style="margin:0; font-weight:800;"><span class="w3-large">هاشم الشهاري.</span> <span class="muted">المدير التنفيذي بشركة يمن موبايل.</span></p>
-          <p class="muted" style="margin:6px 0 0;">لا يوجد شخص أفضل من أحمد في هذا المجال 
-.</p>
-        </div>
-
+  <section class="w3-content w3-padding-64 reveal" id="projects">
+    <div class="glass">
+      <h2 class="lang en">Work</h2><h2 class="lang ar">أعمالي</h2>
+      <div class="w3-row-padding">
+        <div class="w3-half"><img src="1.jpg" style="width:100%" onclick="o(this)"><img src="2.jpg" style="width:100%" onclick="o(this)"></div>
+        <div class="w3-half"><img src="3.jpg" style="width:100%" onclick="o(this)"><img src="4.jpg" style="width:100%" onclick="o(this)"></div>
       </div>
     </div>
+  </section>
 
-    <!-- Services -->
-    <div class="w3-content w3-padding-64 reveal" id="services">
-      <div class="glass">
-        <h2 class="sectionTitle" style="font-size:32px; margin:0;">
-          <span class="lang en">Services</span><span class="lang ar">الخدمات</span>
-        </h2>
-        <hr class="hrSoft">
+  <footer class="w3-center w3-padding-64 w3-opacity">
+    <a href="#contact" class="btn w3-button w3-padding-large w3-margin-bottom lang en">Contact Me</a>
+    <a href="#contact" class="btn w3-button w3-padding-large w3-margin-bottom lang ar">تواصل معي</a>
+    <p>Ahmed Alwinani &copy; 2026</p>
+  </footer>
+</div>
 
-        <div class="w3-row-padding" style="margin-top:8px;">
-          <div class="w3-third w3-margin-bottom">
-            <div class="serviceCard">
-              <div class="serviceIcon"><i class="fa fa-diamond"></i></div>
-              <div style="font-weight:900; font-size:18px;"><span class="lang en">Brand Identity</span><span class="lang ar">هوية بصرية</span></div>
-              <div class="muted" style="margin-top:6px;"><span class="lang en">Logo, colors, typography, and guidelines.</span><span class="lang ar">شعار، ألوان، خطوط، ودليل هوية متكامل.</span></div>
-            </div>
-          </div>
-          <div class="w3-third w3-margin-bottom">
-            <div class="serviceCard">
-              <div class="serviceIcon"><i class="fa fa-camera"></i></div>
-              <div style="font-weight:900; font-size:18px;"><span class="lang en">Photography</span><span class="lang ar">تصوير</span></div>
-              <div class="muted" style="margin-top:6px;"><span class="lang en">Shooting + retouching + grading.</span><span class="lang ar">تصوير + معالجة + تصحيح ألوان.</span></div>
-            </div>
-          </div>
-          <div class="w3-third w3-margin-bottom">
-            <div class="serviceCard">
-              <div class="serviceIcon"><i class="fa fa-code"></i></div>
-              <div style="font-weight:900; font-size:18px;"><span class="lang en">Web Design</span><span class="lang ar">تصميم مواقع</span></div>
-              <div class="muted" style="margin-top:6px;"><span class="lang en">Responsive UI, fast loading, clean layout.</span><span class="lang ar">تصميم متجاوب، سرعة عالية، واجهة نظيفة.</span></div>
-            </div>
-          </div>
-        </div>
+<div id="m" class="modal" onclick="this.style.display='none'"><img id="mi" style="max-width:100%;max-height:90vh;margin:auto;display:block"></div>
 
-        <div class="w3-row-padding">
-          <div class="w3-third w3-margin-bottom">
-            <div class="serviceCard">
-              <div class="serviceIcon"><i class="fa fa-bullhorn"></i></div>
-              <div style="font-weight:900; font-size:18px;"><span class="lang en">Ads & Posters</span><span class="lang ar">إعلانات وبوسترات</span></div>
-              <div class="muted" style="margin-top:6px;"><span class="lang en">Strong hierarchy and impactful visuals.</span><span class="lang ar">تصميم قوي بهرمية واضحة وتأثير بصري.</span></div>
-            </div>
-          </div>
-          <div class="w3-third w3-margin-bottom">
-            <div class="serviceCard">
-              <div class="serviceIcon"><i class="fa fa-video-camera"></i></div>
-              <div style="font-weight:900; font-size:18px;"><span class="lang en">Video Editing</span><span class="lang ar">مونتاج</span></div>
-              <div class="muted" style="margin-top:6px;"><span class="lang en">Reels, captions, transitions, clean cuts.</span><span class="lang ar">ريلز، كابشن، انتقالات، قص احترافي.</span></div>
-            </div>
-          </div>
-          <div class="w3-third w3-margin-bottom">
-            <div class="serviceCard">
-              <div class="serviceIcon"><i class="fa fa-line-chart"></i></div>
-              <div style="font-weight:900; font-size:18px;"><span class="lang en">Optimization</span><span class="lang ar">تحسين الأداء</span></div>
-              <div class="muted" style="margin-top:6px;"><span class="lang en">Speed & UX: lazy loading + UI polish.</span><span class="lang ar">سرعة وتجربة مستخدم: تحميل كسول + لمسات UI.</span></div>
-            </div>
-          </div>
-        </div>
+<button class="fab" style="bottom:20px" onclick="tT()"><i class="fa fa-moon-o"></i></button>
+<button class="fab" style="bottom:75px" onclick="tL()"><i class="fa fa-language"></i></button>
 
-      </div>
-    </div>
+<script>
+  let sI = 1; 
+  const tT = () => { document.body.classList.toggle('light'); localStorage.setItem('t', document.body.classList.contains('light')?'l':'d'); };
+  const tL = () => { document.body.classList.toggle('ar'); localStorage.setItem('l', document.body.classList.contains('ar')?'ar':'en'); };
+  const o = (e) => { document.getElementById('m').style.display='block'; document.getElementById('mi').src=e.src; };
+  
+  function plusS(n) { showS(sI += n); }
+  function showS(n) {
+    let x = document.getElementsByClassName("testi");
+    if (n > x.length) sI = 1; if (n < 1) sI = x.length;
+    for (let i=0; i<x.length; i++) x[i].style.display = "none";
+    x[sI-1].style.display = "block";
+  }
+  showS(sI);
 
-    <!-- Projects -->
-    <div class="w3-content w3-padding-64 reveal" id="projects">
-      <div class="glass">
-        <h2 class="sectionTitle" style="font-size:32px; margin:0;">
-          <span class="lang en">Projects Showcase</span><span class="lang ar">عرض الأعمال</span>
-        </h2>
-        <hr class="hrSoft">
+  window.onscroll = () => {
+    let h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById("pb").style.width = (window.scrollY / h) * 100 + "%";
+  };
 
-        <div class="w3-row-padding" style="margin-top:10px;">
-          <div class="w3-third w3-margin-bottom">
-            <div class="projectCard">
-              <div class="projectTop">
-                <div style="font-weight:900; font-size:18px;"><span class="lang en">Brand Kit</span><span class="lang ar">حزمة هوية</span></div>
-                <div class="muted"><span class="lang en">Logo + palette + typography + mockups.</span><span class="lang ar">شعار + ألوان + خطوط + موك أب.</span></div>
-              </div>
-              <div class="projectFooter">
-                <button class="w3-button btn btnAccent w3-small" onclick="openModalBySrc('1.jpg')">
-                  <i class="fa fa-eye"></i> <span class="lang en">Preview</span><span class="lang ar">معاينة</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="w3-third w3-margin-bottom">
-            <div class="projectCard">
-              <div class="projectTop">
-                <div style="font-weight:900; font-size:18px;"><span class="lang en">Poster Series</span><span class="lang ar">سلسلة بوسترات</span></div>
-                <div class="muted"><span class="lang en">High-impact posters with strong layout.</span><span class="lang ar">بوسترات قوية بتنسيق احترافي.</span></div>
-              </div>
-              <div class="projectFooter">
-                <button class="w3-button btn btnAccent w3-small" onclick="openModalBySrc('2.jpg')">
-                  <i class="fa fa-eye"></i> <span class="lang en">Preview</span><span class="lang ar">معاينة</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="w3-third w3-margin-bottom">
-            <div class="projectCard">
-              <div class="projectTop">
-                <div style="font-weight:900; font-size:18px;"><span class="lang en">Photography Set</span><span class="lang ar">مجموعة تصوير</span></div>
-                <div class="muted"><span class="lang en">Editing, grading, and retouch workflow.</span><span class="lang ar">تعديل، تصحيح ألوان، ومعالجة نهائية.</span></div>
-              </div>
-              <div class="projectFooter">
-                <button class="w3-button btn btnAccent w3-small" onclick="openModalBySrc('3.jpg')">
-                  <i class="fa fa-eye"></i> <span class="lang en">Preview</span><span class="lang ar">معاينة</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="muted" style="margin-top:6px; font-size:13px;">
-          <span class="lang en">Tip: Use Squoosh/TinyPNG then replace files with optimized versions using the SAME names.</span>
-          <span class="lang ar">.</span>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Photos -->
-    <div class="w3-padding-64 w3-content reveal" id="photos">
-      <div class="glass">
-        <h2 class="sectionTitle" style="font-size:32px; margin:0;">
-          <span class="lang en">My Photos</span><span class="lang ar">صوري</span>
-        </h2>
-        <hr class="hrSoft">
-
-        <div class="w3-row-padding photoGrid" style="margin:0 -16px; margin-top:10px;">
-          <div class="w3-half">
-            <img src="1.jpg" alt="photo1" style="width:100%" loading="lazy" decoding="async" onclick="openModal(this)">
-            <img src="2.jpg" alt="photo2" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
-            <img src="3.jpg" alt="photo3" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
-          </div>
-
-          <div class="w3-half">
-            <img src="4.jpg" alt="photo4" style="width:100%" loading="lazy" decoding="async" onclick="openModal(this)">
-            <img src="5.jpg" alt="photo5" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
-            <img src="6.jpg" alt="photo6" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
-            <img src="7.jpg" alt="photo7" style="width:100%; margin-top:12px;" loading="lazy" decoding="async" onclick="openModal(this)">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contact -->
-    <div class="w3-padding-64 w3-content reveal" id="contact">
-      <div class="glass">
-        <h2 class="sectionTitle" style="font-size:32px; margin:0;">
-          <span class="lang en">Contact Me</span><span class="lang ar">تواصل معي</span>
-        </h2>
-        <hr class="hrSoft">
-
-        <div class="w3-section">
-          <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i>
-            <span class="lang en">sanaa, YEMEN</span><span class="lang ar">صنعاء، اليمن</span>
-          </p>
-          <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i>
-            <span class="lang en">Phone: +967 777120414</span><span class="lang ar">الهاتف: +967 777120414</span>
-          </p>
-          <p>
-            <i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"></i>
-            <span class="lang en">Email:</span><span class="lang ar">البريد:</span>
-            <span id="emailText">a.winani11@gmail.com</span>
-            <button class="w3-button w3-small btn w3-light-grey" style="margin-left:10px;" onclick="copyEmail()">
-              <i class="fa fa-copy"></i> <span class="lang en">Copy</span><span class="lang ar">نسخ</span>
-            </button>
-          </p>
-        </div>
-
-        <p class="muted">
-          <span class="lang en">Send me a message:</span>
-          <span class="lang ar">أرسل لي رسالة:</span>
-        </p>
-
-        <form onsubmit="return handleSubmit(event)">
-          <p><input class="w3-input w3-padding-16" type="text" placeholder="Name / الاسم" required name="Name"></p>
-          <p><input class="w3-input w3-padding-16" type="email" placeholder="Email / البريد" required name="Email"></p>
-          <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject / الموضوع" required name="Subject"></p>
-          <p><input class="w3-input w3-padding-16" type="text" placeholder="Message / الرسالة" required name="Message"></p>
-          <p>
-            <button class="w3-button btn btnAccent w3-padding-large" type="submit">
-              <i class="fa fa-paper-plane"></i>
-              <span class="lang en">SEND MESSAGE</span><span class="lang ar">إرسال</span>
-            </button>
-          </p>
-          <div id="formMsg" class="muted" style="display:none; margin-top:8px;"></div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="w3-content w3-padding-64 w3-xlarge w3-center reveal">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-      <p class="w3-medium muted" style="margin-top:14px;">Powered by: Ahmed Alwinani</p>
-    </footer>
-
-  </div>
-
-  <!-- Modal -->
-  <div class="modal" id="imgModal" onclick="closeModal()">
-    <button class="modalClose" type="button" onclick="closeModal(); event.stopPropagation();">
-      <i class="fa fa-close"></i>
-    </button>
-    <div class="modalContent">
-      <img id="modalImg" alt="Preview">
-    </div>
-  </div>
-
-  <!-- Floating buttons -->
-  <button class="fab themeToggle" id="themeToggle" type="button" title="Toggle theme">
-    <i class="fa fa-moon-o" id="themeIcon"></i>
-  </button>
-
-  <button class="fab langToggle" id="langToggle" type="button" title="Arabic / English">
-    <i class="fa fa-language"></i>
-  </button>
-
-  <button class="fab toTop" id="toTop" type="button" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Back to top">
-    <i class="fa fa-arrow-up"></i>
-  </button>
-
-  <!-- WhatsApp -->
-  <a class="fab waBtn" href="https://wa.me/967777120414" target="_blank" title="WhatsApp">
-    <i class="fa fa-whatsapp"></i> <span class="lang en">WhatsApp</span><span class="lang ar">واتساب</span>
-  </a>
-
-  <script>
-    // Theme
-    const body = document.body;
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-
-    function applyTheme(mode){
-      if(mode === 'light'){
-        body.classList.add('light');
-        themeIcon.className = 'fa fa-sun-o';
-      }else{
-        body.classList.remove('light');
-        themeIcon.className = 'fa fa-moon-o';
+  const obs = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+        if(e.target.id === 'about') document.querySelectorAll('.bar').forEach(b => b.style.width = b.dataset.w + '%');
       }
-      localStorage.setItem('theme', mode);
-    }
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    applyTheme(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-      const isLight = body.classList.contains('light');
-      applyTheme(isLight ? 'dark' : 'light');
     });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
 
-    // Language (Arabic/English)
-    const langToggle = document.getElementById('langToggle');
-
-    function applyLang(mode){
-      if(mode === 'ar'){
-        body.classList.add('ar');
-        document.documentElement.lang = 'ar';
-      }else{
-        body.classList.remove('ar');
-        document.documentElement.lang = 'en';
-      }
-      localStorage.setItem('lang', mode);
-    }
-    const savedLang = localStorage.getItem('lang') || 'en';
-    applyLang(savedLang);
-
-    langToggle.addEventListener('click', () => {
-      const isAr = body.classList.contains('ar');
-      applyLang(isAr ? 'en' : 'ar');
-    });
-
-    // Modal
-    const imgModal = document.getElementById('imgModal');
-    const modalImg = document.getElementById('modalImg');
-
-    function openModal(img){
-      modalImg.src = img.src;
-      imgModal.style.display = 'block';
-    }
-    function openModalBySrc(src){
-      modalImg.src = src;
-      imgModal.style.display = 'block';
-    }
-    function closeModal(){
-      imgModal.style.display = 'none';
-      modalImg.src = '';
-    }
-
-    // Scroll progress + toTop
-    const progress = document.getElementById('progress');
-    const toTop = document.getElementById('toTop');
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = height ? (scrollTop / height) * 100 : 0;
-      progress.style.width = scrolled + '%';
-      toTop.style.display = scrollTop > 600 ? 'block' : 'none';
-      setActive();
-    });
-
-    // Active nav
-    const navLinks = document.querySelectorAll('.navBtn');
-    const sections = ['home','about','services','projects','photos','contact'].map(id => document.getElementById(id));
-
-    function setActive(){
-      let current = 'home';
-      sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if(rect.top <= 160 && rect.bottom >= 160) current = sec.id;
-      });
-      navLinks.forEach(a => a.classList.remove('active'));
-      const activeLink = document.querySelector('.navBtn[href="#'+current+'"]');
-      if(activeLink) activeLink.classList.add('active');
-    }
-    setActive();
-
-    // Reveal animations
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('show');
-          io.unobserve(e.target);
-        }
-      });
-    }, {threshold: 0.12});
-    revealEls.forEach(el=>io.observe(el));
-
-    // Animate skill bars
-    const bars = document.querySelectorAll('.bar[data-w]');
-    const barObserver = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          bars.forEach(b=> b.style.width = (b.getAttribute('data-w') || 0) + '%');
-          barObserver.disconnect();
-        }
-      });
-    }, {threshold: 0.25});
-    const about = document.getElementById('about');
-    if(about) barObserver.observe(about);
-
-    // Copy email
-    function copyEmail(){
-      const email = document.getElementById('emailText').innerText.trim();
-      navigator.clipboard.writeText(email).then(()=>{
-        showFormMsg(body.classList.contains('ar') ? "تم نسخ البريد ✅" : "Email copied ✅", true);
-      }).catch(()=>{
-        showFormMsg(body.classList.contains('ar') ? "فشل النسخ.. انسخ يدويًا" : "Copy failed. Please copy manually.", false);
-      });
-    }
-
-    // Contact submit (front-end demo)
-    function handleSubmit(event){
-      event.preventDefault();
-      showFormMsg(body.classList.contains('ar')
-        ? "تم تجهيز الرسالة ✅ (عرض فقط). اربط النموذج بخادم لاستقبال الرسائل."
-        : "Message ready ✅ (Demo). Connect this form to a backend to receive emails.", true);
-      event.target.reset();
-      return false;
-    }
-
-    function showFormMsg(text, ok){
-      const el = document.getElementById('formMsg');
-      el.style.display = 'block';
-      el.innerText = text;
-      el.style.opacity = '1';
-      el.style.color = ok ? (body.classList.contains('light') ? '#0a7a2f' : '#7CFF9B') : (body.classList.contains('light') ? '#b00020' : '#FF9AA6');
-      setTimeout(()=>{ el.style.opacity = '0.0'; }, 3500);
-      setTimeout(()=>{ el.style.display = 'none'; el.style.opacity='1'; }, 4200);
-    }
-  </script>
+  if (localStorage.getItem('t') === 'l') document.body.classList.add('light');
+  if (localStorage.getItem('l') === 'ar') document.body.classList.add('ar');
+</script>
 </body>
 </html>
